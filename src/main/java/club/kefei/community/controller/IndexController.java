@@ -1,5 +1,6 @@
 package club.kefei.community.controller;
 
+import club.kefei.community.dto.PaginationDTO;
 import club.kefei.community.dto.QuestionDTO;
 import club.kefei.community.mapper.QuestionMapper;
 import club.kefei.community.mapper.UserMapper;
@@ -29,7 +30,7 @@ public class IndexController {
     public String index(HttpServletRequest request,
                         Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
-                        @RequestParam(name = "size", defaultValue = "5") Integer size) {
+                        @RequestParam(name = "size", defaultValue = "2") Integer size) {
         Cookie[] cookies = request.getCookies();
         if(cookies != null && cookies.length != 0) {
             for (Cookie cookie : cookies) {
@@ -43,8 +44,8 @@ public class IndexController {
                 }
             }
         }
-        List<QuestionDTO> questionList = questionService.list(page, size);
-        model.addAttribute("questions", questionList);
+        PaginationDTO pagination = questionService.list(page, size);
+        model.addAttribute("pagination", pagination);
         return "index";
     }
 }
