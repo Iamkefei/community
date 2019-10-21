@@ -1,5 +1,6 @@
 package club.kefei.community.mapper;
 
+import club.kefei.community.dto.QuestionDTO;
 import club.kefei.community.modal.Question;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -27,4 +28,7 @@ public interface QuestionMapper {
 
     @Select("select count(1) from question where creator = #{userId}")
     Integer countByUserId(Integer userId);
+
+    @Select("select * from question where id = #{id}")
+    Question getById(Integer id);
 }
