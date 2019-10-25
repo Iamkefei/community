@@ -3,7 +3,7 @@ package club.kefei.community.controller;
 import club.kefei.community.dto.AccessTokenDTO;
 import club.kefei.community.dto.GithubUser;
 import club.kefei.community.mapper.UserMapper;
-import club.kefei.community.modal.User;
+import club.kefei.community.model.User;
 import club.kefei.community.provider.GithubProvider;
 import club.kefei.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
 package club.kefei.community.controller;
 
 import club.kefei.community.mapper.QuestionMapper;
-import club.kefei.community.modal.Question;
-import club.kefei.community.modal.User;
+import club.kefei.community.model.Question;
+import club.kefei.community.model.User;
 import club.kefei.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

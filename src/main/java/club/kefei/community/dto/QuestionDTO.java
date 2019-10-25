@@ -1,6 +1,6 @@
 package club.kefei.community.dto;
 
-import club.kefei.community.modal.User;
+import club.kefei.community.model.User;
 import lombok.Data;
 
 @Data

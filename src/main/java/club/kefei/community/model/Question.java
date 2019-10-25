@@ -1,4 +1,4 @@
-package club.kefei.community.modal;
+package club.kefei.community.model;
 
 import lombok.Data;
 

@@ -1,7 +1,6 @@
 package club.kefei.community.mapper;
 
-import club.kefei.community.dto.QuestionDTO;
-import club.kefei.community.modal.Question;
+import club.kefei.community.model.Question;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
