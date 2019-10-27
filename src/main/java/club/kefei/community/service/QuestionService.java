@@ -2,6 +2,8 @@ package club.kefei.community.service;
 
 import club.kefei.community.dto.PaginationDTO;
 import club.kefei.community.dto.QuestionDTO;
+import club.kefei.community.exception.CustomizeErrorCode;
+import club.kefei.community.exception.CustomizeException;
 import club.kefei.community.mapper.QuestionMapper;
 import club.kefei.community.mapper.UserMapper;
 import club.kefei.community.model.Question;
@@ -93,6 +95,9 @@ public class QuestionService {
 
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.selectByPrimaryKey(id);
+        if(question == null) {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.selectByPrimaryKey(question.getCreator());
@@ -115,7 +120,10 @@ public class QuestionService {
             QuestionExample example = new QuestionExample();
             example.createCriteria()
                     .andIdEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(updateQuestion, example);
+            int updated = questionMapper.updateByExampleSelective(updateQuestion, example);
+            if(updated != 1) {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 }
