@@ -1,6 +1,7 @@
 package club.kefei.community.dto;
 
 import club.kefei.community.exception.CustomizeErrorCode;
+import club.kefei.community.exception.CustomizeException;
 import lombok.Data;
 
 @Data
@@ -19,7 +20,12 @@ public class ResultDTO {
         return errorOf(errorCode.getCode(), errorCode.getMessage());
     }
 
+    public static ResultDTO errorOf(CustomizeException e) {
+        return errorOf(e.getCode(), e.getMessage());
+    }
+
     public static ResultDTO okOf() {
         return errorOf(200, "请求成功");
     }
+
 }
