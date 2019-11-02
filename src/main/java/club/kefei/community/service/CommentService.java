@@ -35,7 +35,7 @@ public class CommentService {
             commentMapper.insert(comment);
         }else {
             // 回复问题
-
+            questionMapper.selectByPrimaryKey(comment.getParentId());
         }
     }
 }
