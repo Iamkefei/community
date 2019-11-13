@@ -1,5 +1,3 @@
-## 码匠社区
-
 ## 快速运行
 1. 安装必备工具  
 JDK，Maven
@@ -10,7 +8,7 @@ mvn flyway:migrate
 ```
 4. 运行打包命令
 ```sh
-mvn package
+mvn clean package
 ```
 5. 运行项目  
 ```sh
@@ -49,27 +47,7 @@ http://localhost:8887
 [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei/related)  
 [Postman](https://chrome.google.com/webstore/detail/coohjcphdfgbiolnekdpbcijmhambjff)
 
-## 脚本
-```sql
-CREATE TABLE USER
-(
-    ID int AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    ACCOUNT_ID VARCHAR(100),
-    NAME VARCHAR(50),
-    TOKEN VARCHAR(36),
-    GMT_CREATE BIGINT,
-    GMT_MODIFIED BIGINT
-);
-```
 ```bash
 mvn flyway:migrate
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```
-
-## 更新日志
-- 2019-7-30 修复 session 过期时间很短问题   
-- 2019-8-2 修复因为*和+号产生的搜索异常问题  
-- 2019-8-18 添加首页按照最新、最热、零回复排序  
-- 2019-8-18 修复搜索输入 ? 号出现异常问题
-- 2019-8-22 修复图片大小限制和提问内容为空问题
-- 2019-9-1 添加动态导航栏
